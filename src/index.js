@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import StateAndEffect from './StateAndEffect';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    {/* <StateAndEffect/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

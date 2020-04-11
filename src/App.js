@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect } from 'react';
 import './App.css';
+import StateAndEffect from './StateAndEffect';
 
-function App() {
+function App (){
+  const [language, setLanguage] = useState('JavaScript');
+  const [library, setLibrary] = useState('React')
+
+  useEffect(() => {
+    //Update the document title using the browser API
+    document.title = `${language} is super fun with ${library}`
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{
+      position: 'absolute', left: '35%', top: '35%',
+
+  }}>
+    <section>
+    <h1>Favorite Language and Library</h1>
+      <label>Programming Language: </label>
+        <input
+        type="text"
+        id="language"
+        value={language}
+        onChange={(event)=>setLanguage(event.target.value)}
+        />
+        <p>Hello World! {language} is the best.</p>
+    </section>
+    
+    <section>
+      <label>Library:</label>
+      <input
+      type="text"
+      name="library"
+      id="library"
+      value={library}
+      onChange={(event)=>setLibrary(event.target.value)}
+      />
+    </section>
     </div>
   );
 }
